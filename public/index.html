@@ -8,5 +8,16 @@
 <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+        <script>
+      // Remove Lovable badge
+      window.addEventListener('load', function() {
+        const lovableBadge = document.querySelector('[data-testid="lovable-badge"]') || 
+                            document.querySelector('a[href*="lovable"][style*="position: fixed"]') ||
+                            Array.from(document.querySelectorAll('a')).find(a => a.textContent.includes('Edit with Lovable'));
+        if (lovableBadge) {
+          lovableBadge.remove();
+        }
+      });
+    </script>
 </body>
 </html>
